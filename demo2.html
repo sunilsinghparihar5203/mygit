@@ -28,21 +28,45 @@
         <li class="list-group-item">Item 1</li>
         <li class="list-group-item">Item 2</li>
         <li class="list-group-item">Item 3</li>
-        <li class="list-group-item">Item 4</li>
+        <li class="list-group-item"><h1>Item 4</h1></li>
         <li>Item 5</li>
       </ul>
     </div>
   </div>
 
   <script>
-    document.querySelectorAll('li')[1].style.color = "green";
-    let lis = document.querySelectorAll('li')
+      let items = document.getElementById('items')
+      //parentElement =parentNode
+      console.log(items.parentElement)
+      items.parentElement.style.backgroundColor ="orange"
 
-    lis.forEach((li,i) =>{
-        if(i %2 != 0){
-            li.style.backgroundColor = "green";
-        }
-    })
+      //lastelementchild
+      console.log(items.lastElementChild.innerHTML)
+      //lastchild
+      console.log(items.lastChild.innerHTML)
+
+      //firstelementchild
+      console.log(items.firstElementChild)
+      //firstchild
+      console.log(items.firstChild)
+
+      //nextsibling
+      console.log(items.nextSibling)
+      //nextelementsibling
+      console.log(items.nextElementSibling)
+      //previoussibling
+      console.log(items.previousSibling)
+    //previouselementsibling
+    console.log(items.previousElementSibling)
+
+    let newele = document.createElement("li")
+    newele.setAttribute("id", "demo");
+
+    const textNode = document.createTextNode("Hello World");
+    newele.appendChild(textNode);
+    items.appendChild(newele);
+    
+
   </script>
 
 </body>
