@@ -22,7 +22,7 @@
     </div>
 
     <div class="container " >
-        <div class="row"> 
+        <div class="row" id="scontainer"> 
             <div class="col-md-2">
                
             </div>
@@ -44,8 +44,35 @@
             }
             localStorage.setItem(obj.id, JSON.stringify(obj))
             console.log("data saved")
+            showCards()
 
         }
+        showCards()
+
+        function showCards() {
+            let items = getAllKeys()
+            let item;
+            $("#scontainer").html("")
+                for (let i = 0; i < items.length; i++) {
+                    item = localStorage.getItem(items[i]);
+                    item = JSON.parse(item);
+                        $("#scontainer").append(`<div class="card m-1 p-3" style="width:16rem">
+                                        <h5 class="card-title">${item.name}</h5>
+                                        <h5 class="card-title">${item.email}</h5>
+                                    </div>`);
+                }  
+        }
+
+        
+        function getAllKeys() {
+            let values = []
+            let keys = Object.keys(localStorage);
+            for (let i = 0; i < keys.length; i++) {
+                values.push(keys[i])
+            }
+            return values
+        }
+        
     </script>
     
 </body>
