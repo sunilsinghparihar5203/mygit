@@ -18,7 +18,7 @@
             <h1 id="header-title">Item Lister</h1>
         </div>
         <div class="col-md-6 align-self-center">
-            <input type="text" class="form-control" id="filter" placeholder="Search Items...">
+            <input type="text" class="form-control" id="filter" onkeyup="myFunction()"  placeholder="Search Items...">
         </div>
       </div>
     </div>
@@ -41,6 +41,21 @@
   </div>
 
   <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
 var filter = document.getElementById('filter');
@@ -113,6 +128,27 @@ function filterItems(e){
     }
   });
 }
+
+
+  function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('filter');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("items");
+    li = ul.getElementsByTagName('li');
+  
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+
     
 
   </script>
